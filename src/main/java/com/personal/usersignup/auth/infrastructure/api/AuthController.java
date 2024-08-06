@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     @PostMapping("/sign_up")
-    public ResponseEntity<?> signUp() {
+    public ResponseEntity<Object> signUp() {
         throw new RuntimeException("Not implemented yet");
     }
 }
