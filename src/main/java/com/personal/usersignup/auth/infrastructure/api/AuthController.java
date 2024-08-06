@@ -1,7 +1,9 @@
 package com.personal.usersignup.auth.infrastructure.api;
 
 import com.personal.usersignup.auth.application.RegisterUser;
+import com.personal.usersignup.auth.domain.records.read.UserDefinition;
 import com.personal.usersignup.auth.domain.records.write.UserRegistration;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +21,10 @@ public class AuthController {
     }
 
     @PostMapping("/sign_up")
-    public ResponseEntity<Object> signUp(@RequestBody UserRegistration userToRegister) {
-        return registerUser.execute(userToRegister);
+    public ResponseEntity<UserDefinition> signUp(@RequestBody UserRegistration userToRegister) {
+        return new ResponseEntity<>(
+                registerUser.execute(userToRegister),
+                HttpStatus.CREATED
+        );
     }
 }
