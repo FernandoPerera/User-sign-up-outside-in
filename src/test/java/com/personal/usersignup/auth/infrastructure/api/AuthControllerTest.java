@@ -49,7 +49,7 @@ class AuthControllerTest {
                     .andReturn();
             UserDefinition registeredUserDefinition = jsonToObject(
                     UserDefinition.class,
-                    result.getRequest().getContentAsString()
+                    result.getResponse().getContentAsString()
             );
 
             assertEquals(expectedUserDefinition, registeredUserDefinition);
