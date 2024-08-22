@@ -1,7 +1,8 @@
 package com.personal.usersignup.auth.domain.models;
 
-public class User {
+import com.personal.usersignup.auth.domain.records.read.UserDefinition;
 
+public class User {
     private String mail;
     private String username;
     private String password;
@@ -14,5 +15,10 @@ public class User {
 
     public static User create(String mail, String username, String password) {
         return new User(mail, username, password);
+    }
+
+
+    public UserDefinition toDefinition() {
+        return new UserDefinition(this.mail, this.username);
     }
 }
