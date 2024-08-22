@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RegisterUserTest {
 
-    private UserRepositoryFake userRepositoryFake;
+    private final UserRepositoryFake userRepositoryFake = new UserRepositoryFake();
     private final RegisterUser registerUser = new RegisterUser(userRepositoryFake);
 
     @Test
