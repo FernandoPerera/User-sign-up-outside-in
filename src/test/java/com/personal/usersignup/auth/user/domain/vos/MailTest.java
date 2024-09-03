@@ -15,7 +15,7 @@ class MailTest {
     void should_not_create_mail_if_content_is_empty() {
         String content = "";
 
-        Result<DomainError, Mail> result = Mail.of(content).map(
+        Mail.of(content).map(
                 error -> assertInstanceOf(MailCannotBeEmpty.class, error),
                 mail -> {
                     assertNull(mail);

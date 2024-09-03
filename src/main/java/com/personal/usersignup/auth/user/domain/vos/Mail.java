@@ -1,6 +1,5 @@
 package com.personal.usersignup.auth.user.domain.vos;
 
-import com.personal.usersignup.auth.user.domain.errors.MailCannotBeEmpty;
 import com.personal.usersignup.shared.Result;
 import com.personal.usersignup.shared.domain.definition.ValueObject;
 import com.personal.usersignup.shared.domain.error.DomainError;
