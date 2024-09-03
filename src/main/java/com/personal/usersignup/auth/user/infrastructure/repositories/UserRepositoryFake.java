@@ -1,7 +1,7 @@
-package com.personal.usersignup.auth.infrastructure.repositories;
+package com.personal.usersignup.auth.user.infrastructure.repositories;
 
-import com.personal.usersignup.auth.domain.repositories.UserRepository;
-import com.personal.usersignup.auth.domain.models.User;
+import com.personal.usersignup.auth.user.domain.repositories.UserRepository;
+import com.personal.usersignup.auth.user.domain.models.User;
 import org.springframework.stereotype.Repository;
 
 @Repository

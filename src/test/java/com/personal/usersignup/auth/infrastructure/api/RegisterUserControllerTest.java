@@ -2,8 +2,8 @@ package com.personal.usersignup.auth.infrastructure.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.personal.usersignup.auth.domain.records.read.UserDefinition;
-import com.personal.usersignup.auth.domain.records.write.UserRegistration;
+import com.personal.usersignup.auth.user.domain.records.read.UserDefinition;
+import com.personal.usersignup.auth.user.domain.records.write.UserRegistration;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class AuthControllerTest {
+class RegisterUserControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

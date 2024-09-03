@@ -1,8 +1,8 @@
-package com.personal.usersignup.auth.infrastructure.api;
+package com.personal.usersignup.auth.user.infrastructure.api;
 
-import com.personal.usersignup.auth.application.RegisterUser;
-import com.personal.usersignup.auth.domain.records.read.UserDefinition;
-import com.personal.usersignup.auth.domain.records.write.UserRegistration;
+import com.personal.usersignup.auth.user.application.RegisterUser;
+import com.personal.usersignup.auth.user.domain.records.read.UserDefinition;
+import com.personal.usersignup.auth.user.domain.records.write.UserRegistration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-public class AuthController {
+public class RegisterUserController {
 
     private final RegisterUser registerUser;
 
-    public AuthController(RegisterUser registerUser) {
+    public RegisterUserController(RegisterUser registerUser) {
         this.registerUser = registerUser;
     }
 
