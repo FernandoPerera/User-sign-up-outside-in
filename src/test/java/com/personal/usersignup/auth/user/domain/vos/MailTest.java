@@ -10,6 +10,7 @@ class MailTest {
 
     // empty string -> domain error
     // wrong format -> domain error
+    // correct format -> create mail
 
     @Test
     void should_not_create_mail_if_content_is_empty() {
@@ -26,7 +27,7 @@ class MailTest {
 
     @Test
     void should_not_create_mail_if_have_wrong_format() {
-        String content = "test.com";
+        String content = "testcom";
 
         Mail.of(content).map(
                 error -> assertInstanceOf(MailHaveWrongFormat.class, error),

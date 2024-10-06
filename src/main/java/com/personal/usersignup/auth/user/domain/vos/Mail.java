@@ -13,7 +13,7 @@ public class Mail extends ValueObject {
 
     private String value;
 
-    private static final String regex = "[A-Za-z0-9\\._%+\\-]+@[A-Za-z0-9\\.\\-]+\\.[A-Za-z]{2,}";
+    private static final String regex = "[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,}";
 
     private Mail(String value) {
         this.value = value;
@@ -25,12 +25,17 @@ public class Mail extends ValueObject {
             return Result.error(new MailCannotBeEmpty("Mail was empty !!"));
         }
 
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(mail);
-        if (!matcher.matches()) {
+        boolean isWrongFormat = haveWrongFormat(mail);
+        if (isWrongFormat) {
             return Result.error(new MailHaveWrongFormat("Invalid mail format !!"));
         }
         return Result.success(new Mail(mail));
+    }
+
+    private static boolean haveWrongFormat(String mail) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(mail);
+        return !matcher.matches();
     }
 
 
