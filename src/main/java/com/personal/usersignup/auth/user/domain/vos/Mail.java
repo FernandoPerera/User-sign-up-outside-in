@@ -1,5 +1,6 @@
 package com.personal.usersignup.auth.user.domain.vos;
 
+import com.personal.usersignup.auth.user.domain.errors.MailCannotBeEmpty;
 import com.personal.usersignup.shared.Result;
 import com.personal.usersignup.shared.domain.definition.ValueObject;
 import com.personal.usersignup.shared.domain.error.DomainError;
@@ -13,6 +14,6 @@ public class Mail extends ValueObject {
     }
 
     public static Result<DomainError, Mail> of(String mail) {
-        throw new RuntimeException("Not implemented yet");
+        return Result.error(new MailCannotBeEmpty("Mail was empty !!"));
     }
 }
