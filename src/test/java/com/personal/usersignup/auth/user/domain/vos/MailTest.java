@@ -2,8 +2,6 @@ package com.personal.usersignup.auth.user.domain.vos;
 
 import com.personal.usersignup.auth.user.domain.errors.MailCannotBeEmpty;
 import com.personal.usersignup.auth.user.domain.errors.MailHaveWrongFormat;
-import com.personal.usersignup.shared.Result;
-import com.personal.usersignup.shared.domain.error.DomainError;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MailTest {
 
     // empty string -> domain error
+    // wrong format -> domain error
 
     @Test
     void should_not_create_mail_if_content_is_empty() {
