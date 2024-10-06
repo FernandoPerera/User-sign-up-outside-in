@@ -15,7 +15,8 @@ public class Mail extends ValueObject {
     }
 
     public static Result<DomainError, Mail> of(String mail) {
-        if (mail == null || mail.isEmpty()) {
+        boolean mailWasEmpty = mail.isBlank();
+        if (mailWasEmpty) {
             return Result.error(new MailCannotBeEmpty("Mail was empty !!"));
         }
         return Result.error(new MailHaveWrongFormat("Mail have wrong format !!"));
