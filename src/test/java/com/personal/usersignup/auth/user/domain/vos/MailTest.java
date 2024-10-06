@@ -36,4 +36,17 @@ class MailTest {
                 }
         );
     }
+
+    @Test
+    void should_create_mail() {
+        String content = "test@company.es";
+
+        Mail.of(content).map(
+                error -> {
+                    assertNull(error);
+                    return null;
+                },
+                mail -> assertInstanceOf(Mail.class, mail)
+        );
+    }
 }
