@@ -17,7 +17,7 @@ public class User {
         return new User(mail, username, password);
     }
 
-    public UserDefinition toDefinition() {
-        return new UserDefinition(this.mail, this.username);
+    public UserDefinition toDefinition(String token) {
+        return new UserDefinition(this.username, token);
     }
 }

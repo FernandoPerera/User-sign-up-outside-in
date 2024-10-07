@@ -4,6 +4,7 @@ import com.personal.usersignup.auth.user.domain.models.User;
 import com.personal.usersignup.auth.user.domain.records.read.UserDefinition;
 import com.personal.usersignup.auth.user.domain.records.write.UserRegistration;
 import com.personal.usersignup.auth.user.domain.repositories.UserRepository;
+import com.personal.usersignup.auth.user.infrastructure.security.FakeAuthenticationTokenHandler;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,7 +24,7 @@ public class RegisterUser {
         );
 
         User registeredUser = userRepository.save(userToSave);
-
-        return registeredUser.toDefinition();
+        String token = FakeAuthenticationTokenHandler.generateToken();
+        return registeredUser.toDefinition(token);
     }
 }
