@@ -2,6 +2,7 @@ package com.personal.usersignup.auth.infrastructure.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.personal.usersignup.auth.user.infrastructure.security.FakeAuthenticationTokenHandler;
 import com.personal.usersignup.auth.user.domain.records.read.UserDefinition;
 import com.personal.usersignup.auth.user.domain.records.write.UserRegistration;
 import org.junit.jupiter.api.Nested;
@@ -31,14 +32,15 @@ class RegisterUserControllerTest {
 
         @Test
         void user_sign_in_app() throws Exception {
+            String token = FakeAuthenticationTokenHandler.generateToken();
             UserRegistration user = new UserRegistration(
                     "fernando@gmail.com",
                     "fernando.perera",
                     "MyPassW03R"
             );
             UserDefinition expectedUserDefinition = new UserDefinition(
-                    "fernando@gmail.com",
-                    "fernando.perera"
+                    user.username(),
+                    token
             );
 
             MvcResult result = mockMvc.perform(post("/auth/sign_up")
