@@ -1,5 +1,6 @@
 package com.personal.usersignup.auth.application;
 
+import com.personal.usersignup.auth.user.infrastructure.security.FakeAuthenticationTokenHandler;
 import com.personal.usersignup.auth.user.application.RegisterUser;
 import com.personal.usersignup.auth.user.domain.records.read.UserDefinition;
 import com.personal.usersignup.auth.user.domain.records.write.UserRegistration;
@@ -15,14 +16,15 @@ class RegisterUserTest {
 
     @Test
     void should_register_user() {
+        String token = FakeAuthenticationTokenHandler.generateToken();
         UserRegistration userToRegister = new UserRegistration(
                 "fernando@gmail.com",
                 "fernando.perera",
                 "MyPassW03R"
         );
         UserDefinition expectedUserDefinition = new UserDefinition(
-                "fernando@gmail.com",
-                "fernando.perera"
+                userToRegister.username(),
+                token
         );
 
         UserDefinition result = registerUser.execute(userToRegister);
