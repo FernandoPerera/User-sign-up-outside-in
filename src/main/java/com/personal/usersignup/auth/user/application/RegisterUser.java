@@ -4,7 +4,10 @@ import com.personal.usersignup.auth.user.domain.models.User;
 import com.personal.usersignup.auth.user.domain.records.read.UserDefinition;
 import com.personal.usersignup.auth.user.domain.records.write.UserRegistration;
 import com.personal.usersignup.auth.user.domain.repositories.UserRepository;
+import com.personal.usersignup.auth.user.domain.vos.Mail;
 import com.personal.usersignup.auth.user.infrastructure.security.FakeAuthenticationTokenHandler;
+import com.personal.usersignup.shared.Result;
+import com.personal.usersignup.shared.domain.error.DomainError;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -16,7 +19,7 @@ public class RegisterUser {
         this.userRepository = userRepository;
     }
 
-    public UserDefinition execute(UserRegistration userToRegister) {
+    public Result<DomainError, UserDefinition> execute(UserRegistration userToRegister) {
         User userToSave = User.create(
                 userToRegister.mail(),
                 userToRegister.username(),
@@ -25,6 +28,6 @@ public class RegisterUser {
 
         User registeredUser = userRepository.save(userToSave);
         String token = FakeAuthenticationTokenHandler.generateToken();
-        return registeredUser.toDefinition(token);
+        return Result.success(registeredUser.toDefinition(token));
     }
 }
