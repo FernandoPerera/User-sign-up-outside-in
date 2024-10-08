@@ -20,8 +20,14 @@ public class RegisterUser {
     }
 
     public Result<DomainError, UserDefinition> execute(UserRegistration userToRegister) {
+        Result<DomainError, Mail> mailResult = Mail.of(userToRegister.mail());
+
+        if (mailResult.isError()) {
+            return Result.error(mailResult.getError());
+        }
+
         User userToSave = User.create(
-                userToRegister.mail(),
+                mailResult.getResult(),
                 userToRegister.username(),
                 userToRegister.password()
         );
