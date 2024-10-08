@@ -30,11 +30,15 @@ public class Result<E, T> {
         return result;
     }
 
-    public Optional<E> getError() {
-        return isError ? Optional.of(error) : Optional.empty();
+    public boolean isError() {
+        return isError;
     }
 
-    public Optional<T> getResult() {
-        return isError ? Optional.empty() : Optional.of(result);
+    public E getError() {
+        return error;
+    }
+
+    public T getResult() {
+        return result;
     }
 }
