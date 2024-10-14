@@ -1,6 +1,5 @@
 package com.personal.usersignup.shared;
 
-import java.util.Optional;
 import java.util.function.Function;
 
 public class Result<E, T> {
@@ -9,7 +8,7 @@ public class Result<E, T> {
     private E error;
     private  boolean isError = false;
 
-    public <U> Result<E, U> map(Function<? super E, ? extends E> errorMapper, Function<? super T, ? extends U> successMapper) {
+    public <U, R> Result<R, U> map(Function<? super E, ? extends R> errorMapper, Function<? super T, ? extends U> successMapper) {
         if (isError) {
             return Result.error(errorMapper.apply(error));
         } else {
@@ -42,3 +41,4 @@ public class Result<E, T> {
         return result;
     }
 }
+
