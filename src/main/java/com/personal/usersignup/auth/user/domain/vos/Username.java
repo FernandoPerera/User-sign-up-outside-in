@@ -1,5 +1,6 @@
 package com.personal.usersignup.auth.user.domain.vos;
 
+import com.personal.usersignup.auth.user.domain.errors.UsernameCannotBeEmpty;
 import com.personal.usersignup.shared.Result;
 import com.personal.usersignup.shared.domain.error.DomainError;
 
@@ -12,7 +13,7 @@ public class Username {
     }
 
     public static Result<DomainError, Username> of(String username) {
-        throw new RuntimeException("Not implemented yet");
+        return Result.error(new UsernameCannotBeEmpty("Username cannot be empty !!"));
     }
 
 }
