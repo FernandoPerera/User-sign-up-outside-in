@@ -19,7 +19,4 @@ public class User {
         return new User(mail, username, password);
     }
 
-    public UserDefinition toDefinition(String token) {
-        return new UserDefinition(this.username.getValue(), token);
-    }
 }
