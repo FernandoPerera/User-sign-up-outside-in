@@ -1,6 +1,5 @@
 package com.personal.usersignup.auth.user.domain.models;
 
-import com.personal.usersignup.auth.user.domain.records.read.UserDefinition;
 import com.personal.usersignup.auth.user.domain.vos.Mail;
 import com.personal.usersignup.auth.user.domain.vos.Username;
 
