@@ -38,4 +38,8 @@ public class Mail extends ValueObject {
         return !matcher.matches();
     }
 
+    public String getValue() {
+        return value;
+    }
+
 }

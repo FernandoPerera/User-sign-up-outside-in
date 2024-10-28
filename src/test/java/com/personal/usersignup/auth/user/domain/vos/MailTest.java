@@ -47,7 +47,10 @@ class MailTest {
                     assertNull(error);
                     return null;
                 },
-                mail -> assertInstanceOf(Mail.class, mail)
+                mail -> {
+                    assertEquals(content, mail.getValue());
+                    return mail;
+                }
         );
     }
 }
