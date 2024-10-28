@@ -13,7 +13,12 @@ public class Username {
     }
 
     public static Result<DomainError, Username> of(String username) {
-        return Result.error(new UsernameCannotBeEmpty("Username cannot be empty !!"));
+
+        if (username.isBlank()) {
+            return Result.error(new UsernameCannotBeEmpty("Username cannot be empty !!"));
+        }
+
+        return Result.success(new Username(username));
     }
 
     public String getValue() {
