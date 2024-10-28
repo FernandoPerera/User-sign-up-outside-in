@@ -16,4 +16,7 @@ public class Username {
         return Result.error(new UsernameCannotBeEmpty("Username cannot be empty !!"));
     }
 
+    public String getValue() {
+        return username;
+    }
 }

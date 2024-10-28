@@ -23,4 +23,20 @@ class UsernameTest {
         );
     }
 
+    @Test
+    void should_create_username() {
+        String usernameEntry = "user.name";
+
+        Username.of(usernameEntry).map(
+                domainError -> {
+                    assertNull(domainError);
+                    return domainError;
+                },
+                username -> {
+                    assertEquals("user.name", username.getValue());
+                    return username;
+                }
+        );
+    }
+
 }
