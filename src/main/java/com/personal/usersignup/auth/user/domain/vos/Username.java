@@ -6,10 +6,10 @@ import com.personal.usersignup.shared.domain.error.DomainError;
 
 public class Username {
 
-    private String username;
+    private final String value;
 
-    private Username(String username) {
-        this.username = username;
+    private Username(String value) {
+        this.value = value;
     }
 
     public static Result<DomainError, Username> of(String username) {
@@ -22,6 +22,6 @@ public class Username {
     }
 
     public String getValue() {
-        return username;
+        return value;
     }
 }
