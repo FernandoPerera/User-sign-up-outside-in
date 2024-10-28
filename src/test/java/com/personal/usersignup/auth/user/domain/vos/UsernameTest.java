@@ -18,7 +18,7 @@ class UsernameTest {
                 },
                 username -> {
                     assertNull(username);
-                    return username;
+                    return null;
                 }
         );
     }
@@ -30,7 +30,7 @@ class UsernameTest {
         Username.of(usernameEntry).map(
                 domainError -> {
                     assertNull(domainError);
-                    return domainError;
+                    return null;
                 },
                 username -> {
                     assertEquals("user.name", username.getValue());
